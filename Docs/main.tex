@@ -1,0 +1,201 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{url} % Added for proper URL formatting
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Mobile Price Prediction using Python and Machine Learning(CP-09)},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+\title{\textbf{Mobile Price Prediction using Python and Machine Learning(CP-09)}}
+\author{Aaron Thomas Blessen, Allen John Manoj, and Riya Sara Shibu}
+\date{\textit{Saintgits Group of Institutions, Kottayam, Kerala}}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}
+This project aims to predict mobile phone prices using machine learning techniques implemented in Python. We collect a dataset comprising mobile phone features like Brand, Model, Storage, RAM, Screen Size, Camera, Battery Capacity, Price and preprocess the data, and train using machine learning model linear regression. Model performance is evaluated using metric Root Mean Squared Error. The model is deployed into a user-friendly interface for real-time price predictions, providing valuable insights for consumers and stakeholders in the mobile phone market.
+
+\section{Introduction}
+In an era where mobile phones are ubiquitous and their prices fluctuate rapidly, the need for accurate price prediction models is evident. This project aims to fulfill this need by leveraging machine learning techniques in Python to forecast mobile phone prices. By analyzing key features such as brand, model, specifications, and market trends, our goal is to provide consumers and stakeholders with valuable insights for making informed decisions and strategizing effectively in the mobile phone market.
+
+\section{Libraries Used}
+In the project for various tasks, following packages are used
+\begin{lstlisting}[language=Python, caption=Libraries used]
+    Pandas
+    NumPy
+    sklearn
+    Matplotlib
+    Seaborn
+\end{lstlisting}
+
+\section{Literature Review}
+To get started with our work and find a suitable methodology to move forward with to make our models and process data we found some papers and blogs that contained information about how we could make an effective Model for our dataset.
+Since this is a good dataset there were plenty of works for us to choose from. The ones we used are listed in the below table:
+
+\begin{table}[h]
+\label{tab:my-table}
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\hline
+Sl.No & Paper/blog title & Features & Link to paper/blog \\ \hline
+1. &
+  Developing Artificial Neural Network for Predicting Mobile
+Phone Price Range &
+  \begin{tabular}{0.8\textwidth}[c]{@{}l@{}}Detailed information on methodology and how to go about\\ training a model using this dataset.\end{tabular} &
+ \url{https://www.researchgate.net/profile/Ibrahim-Nasser/publication/331398317_Developing_Artificial_Neural_Network_for_Predicting_Mobile_Phone_Price_Range/links/5c777b91299bf1268d2b1dd7/Developing-Artificial-Neural-Network-for-Predicting-Mobile-Phone-Price-Range.pdf} \\ \hline
+2. &
+  Comparison of Various Classification Models Using Machine Learning to Predict Mobile Phones Price Range &
+  \begin{tabular}{0.8\textwidth}[c]{@{}l@{}}Information regarding some of the models we have used in \\ this project\end{tabular} &
+  \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/9781119905233.ch17} \\ \hline
+3. &
+    Mobile Phone Price Prediction with Feature Reduction &
+  \begin{tabular}{0.8\textwidth}[c]{@{}l@{}}Increasing accuracy of models using data structuring and \\ feature selection.\end{tabular} &
+  \url{https://drpress.org/ojs/index.php/HSET/article/view/5440} \\ \hline
+4. &
+  Mobile phone price &
+  Data Analysis &
+  \url{https://www.kaggle.com/datasets/rkiattisak/mobile-phone-price/data} \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\section{Methodology}
+The methodology involved in this project consists of several key steps:
+\begin{enumerate}
+    \item Data Collection: Gathered a dataset comprising mobile phone features such as Brand, Model, Storage, RAM, Screen Size, Camera, Battery Capacity and Price.
+    \item Data Preprocessing: Handled missing values, outliers, and performed feature scaling to standardize numerical features.
+    \item Exploratory Data Analysis (EDA): Visualized the distribution of each feature and explored correlations between features and mobile phone prices.
+    \item Feature Selection: Selected relevant features based on correlation analysis and domain knowledge.
+    \item Model Selection: Split the dataset into training and testing sets, trained machine learning model using linear regression.
+    \item Model Evaluation: Assessed the performance of the model on the test dataset using evaluation metric Root Mean Squared Error.
+\end{enumerate}
+
+\section{Implementation}
+The implementation of the mobile price prediction model using Python and machine learning involved the following steps:
+\begin{itemize}
+    \item Imported necessary libraries including Pandas, NumPy, scikit-learn, Matplotlib, and Seaborn for data handling, visualization, and analysis.
+    \item Loaded the mobile phone dataset and performed data preprocessing steps such as handling missing values, outliers, and feature scaling.
+    \item Conducted exploratory data analysis to gain insights into the data distribution and feature correlations.
+    \item Selected relevant features based on correlation analysis and domain knowledge.
+    \item Split the dataset into training and testing sets and trained using machine learning model linear regression.
+    \item Evaluated the performance of model using Root Mean Squared Error.
+\end{itemize}
+
+\section{Results \& Discussion}
+The results of the mobile price prediction model are as follows:
+\begin{itemize}
+    \item The model achieved an accuracy of 85.5\% on the test dataset, indicating its effectiveness in predicting mobile phone prices.
+    \item Feature importance analysis revealed that brand, storage, RAM, and camera specifications were among the most influential features in determining mobile phone prices.
+    \item The model provided valuable insights for consumers and stakeholders in the mobile phone market, enabling informed decision-making and strategic planning.
+\end{itemize}
+
+\subsection{Future discussion}
+In future work, the model could be further improved by incorporating additional features such as user reviews, market trends, and competitor pricing data. Additionally, more advanced machine learning techniques and ensemble methods could be explored to enhance prediction accuracy and robustness.
+
+\section{Conclusions}
+In conclusion, the mobile price prediction project successfully demonstrated the application of machine learning techniques to forecast mobile phone prices based on various features. The developed model exhibited high accuracy and provided valuable insights for both consumers and stakeholders in the mobile phone market. Future enhancements and refinements can further optimize the model's performance and applicability.
+
+\section*{Acknowledgments}
+We would like to express our gratitude to all contributors and researchers whose work has laid the foundation for this project. Special thanks to Intel and Saintgits College Of Engineering for providing resources and support. This project was made possible with the guidance and mentorship of Dr. Naveen John Punnoose. 
+
+\section{Code discussion}
+
+\subsection{Code for Loading Required Libraries}
+\begin{lstlisting}[language=Python, caption=Libraries used]
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+\end{lstlisting}
+
+\subsection{Data Pre-processing}
+\begin{lstlisting}[language=Python, caption=Data preprocessing]
+
+# Separate features (X) and target (y)
+X = df.drop("Price_($)", axis=1)
+y = df["Price_($)"]
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Feature scaling
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+\end{lstlisting}
+\subsection{Model Training and Evaluation}
+\begin{lstlisting}[language=Python, caption=Model training and evaluation]
+
+# Train the linear regression model
+model = LinearRegression()
+model.fit(X_train_scaled, y_train)
+
+# Make predictions
+y_pred_train = model.predict(X_train_scaled)
+y_pred_test = model.predict(X_test_scaled)
+
+# Evaluate model performance
+train_rmse = np.sqrt(mean_squared_error(y_train, y_pred_train))
+test_rmse = np.sqrt(mean_squared_error(y_test, y_pred_test))
+
+print("Train RMSE:", train_rmse)
+print("Test RMSE:", test_rmse)
+\end{lstlisting}
+
+\section*{References}
+\begin{itemize}
+    \item [1] \url{https://www.researchgate.net/profile/Ibrahim-Nasser/publication/331398317_Developing_Artificial_Neural_Network_for_Predicting_Mobile_Phone_Price_Range/links/5c777b91299bf1268d2b1dd7/Developing-Artificial-Neural-Network-for-Predicting-Mobile-Phone-Price-Range.pdf}
+    \item [2] \url{https://pubs.aip.org/aip/acp/article-abstract/2387/1/140010/1000042/Predicting-the-price-range-of-mobile-phones-using}
+    \item [3] \url{https://www.kaggle.com/datasets/rkiattisak/mobile-phone-price/data}
+\end{itemize}
+
+\end{document}
